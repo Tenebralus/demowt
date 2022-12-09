@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Opdracht1</title>
+	<style>
+		.wrapper
+		{
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+		
+		.coveredImage
+		{
+			width: 50%;
+			height: 100%;
+			position: absolute;
+		}
+	</style>
+
+	<script>
+		function mijnmethode()
+		{
+			var leeftijd = document.getElementById("invoerding").value;
+            var divNaam = "feedback";
+
+            if(leeftijd < 16)
+            {
+                document.getElementById(divNaam).innerHTML = "Je bent niet toegestaan om te drinken";
+                document.getElementById(divNaam).style.backgroundColor = 'red';
+            }
+            else if(leeftijd >= 16 && leeftijd < 18)
+            {
+                document.getElementById(divNaam).innerHTML = "Je mag bijna drinken";
+                document.getElementById(divNaam).style.backgroundColor = 'yellow';
+            }
+            else if(leeftijd >= 18)
+            {
+                document.getElementById(divNaam).innerHTML = "Je bent toegestaan om te drinken";
+                document.getElementById(divNaam).style.backgroundColor = 'green';
+            }
+            else
+            {
+                document.getElementById(divNaam).innerHTML = "Voer een getal in";
+                document.getElementById(divNaam).style.backgroundColor = 'white';
+            }
+		}
+	</script>
+</head>
+<body>
+    
+    <h1>Welkom bij de alcohol drink toestemming test</h1>
+
+    Wat is je leeftijd?
+	<input id="invoerding"> <button onclick="mijnmethode()">Run de test</button>
+    <div id="feedback"></div>
+    </div>
+	
+</body>
+</html>

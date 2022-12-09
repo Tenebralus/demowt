@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Eerste Les</title>
+	<style>	
+		.coveredImage
+		{
+			width: 500px;
+			height: 500px;
+			position: absolute;
+		}
+		
+		canvas
+		{
+			width: 500px;
+			height: 500px;
+			position: absolute;
+			background-color: rgba(255, 0, 0, .5);
+		}		
+	</style>
+
+	<script>		
+		function init()
+		{
+			window.requestAnimationFrame(draw);
+		}
+		
+		function draw(event)
+		{
+			var canvas = document.getElementById("myCanvas");
+			var ctx = canvas.getContext("2d");
+			var rect = canvas.getBoundingClientRect();
+			
+			var xpos = (event.clientX - rect.left) * canvas.width / rect.width;
+			var ypos = (event.clientY - rect.top) * canvas.height / rect.height;
+			
+			ctx.clearRect(xpos, ypos, 21, 11);
+			
+				// erase rectangle
+				//ctx.clearRect();
+				
+				// move up one pixel
+				ctx.translate(0, -1);
+				
+				// reduce transparancy
+				ctx.globalAlpha = 1;
+				
+				// draw rectangle
+				ctx.fillStyle = "#FF0000";
+				ctx.fillRect(xpos, ypos, 20, 10);
+		}
+
+		function mijnmethode()
+		{
+			var voornaam = document.getElementById("invoerding").value;
+			console.log(voornaam);
+			document.getElementById("div").innerHTML = "welkom " + voornaam;
+		}
+
+		init();
+	</script>
+</head>
+<body>	
+	<input id="invoerding"> <button onclick="mijnmethode()">Klik hier</button>
+	<div id="div">
+		
+		<b> Bold </b>
+		
+		<h1> Title1 </h1>
+		<h2> Title1 </h2>
+		<h3> Title1 </h3>
+		<h4> Title1 </h4>
+		
+		<textarea> </textarea>
+		
+		</br>
+		
+		<a href="https://www.w3schools.com/tags/default.asp" target="_blank"> Learn HTML </a>
+		
+		</br></br>
+		
+		<a href="http://0111.nl/iwp" target="_blank"> Teacher copy paste site </a>
+		
+		</br>
+		
+		login: iwp
+		</br>
+		password: iwp321pwi
+		</br>
+		
+		<hr> </hr>
+			
+		<img src="stick.gif" class="coveredImage">
+		
+		<canvas id="myCanvas"  onclick="draw(event)">
+		
+		</canvas>
+		
+		</div>
+
+</body>
+</html>
